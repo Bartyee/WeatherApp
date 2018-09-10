@@ -1,7 +1,9 @@
 import React, {Component} from 'react'
 import axios from 'axios'
 import Moment from 'react-moment';
+import 'moment/locale/pl';
 import 'moment-timezone';
+
 
 
 const API_KEY = "b25c40f7f24ed40bbd9add84d8badbd9";
@@ -58,30 +60,37 @@ class Forecast extends React.Component {
     }
 
     
-    
+    formatDayData = (string) => {
+        const days = ['Niedziela','Poniedziałek','Wtorek','Środa','Czwartek','Piątek','Sobota'];
 
+    }
     
     render(){
 
         return(
             <div>
-                {this.state.renderForecast && this.state.forecast.map(function(item,i){
-                    console.log('test');
+                {this.state.renderForecast && this.state.forecast.map(function(day,index){
                     return(
-                        <div key={i}>
-                            {item.map(function(itemm, o){
-                                return(
-                                    <div key={o}>
-                                        <li>{itemm.dt_txt.split(' ')[0]}</li>
-                                    </div>
-                                    
-                                    
-                                )
-                            })}
-                            <hr />
+                        <div>
+                        <h1 key={index}><Moment locale='pl' format='dddd'>{day[0].dt_txt.split(' ')[0]}</Moment></h1>
+                        {day.map(function(hour,index){
+                            return(
+                                <div key={index}>
+                                    <p>{hour.dt_txt.split(' ')[1]}</p>
+                                    <p>{hour.main.temp}</p>
+
+                                </div>
+                                
+                            )
+                            
+                        })}
                         </div>
                     )
+                    
+                    
                 })}
+                
+                
             </div>
         )
     }

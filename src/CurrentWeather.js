@@ -88,6 +88,8 @@ class CurrentWeather extends Component {
             <div>
                 {this.state.weather.city.name && <p>City: {this.state.weather.city.name}</p>} {/*City Name*/}
 
+                {this.state.weather.current.temperature && <p>Temperature: {this.state.weather.current.temperature}</p>}
+
                 {this.state.weather.current.humidity && <p>Humidity: {this.state.weather.current.pressure} hpA</p>} {/*Humidity*/}
 
                 {this.state.weather.current.pressure && <p>Pressure: {this.state.weather.current.pressure}%</p>} {/*Pressure*/}

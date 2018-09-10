@@ -41,7 +41,7 @@ class CurrentWeather extends Component {
                     ...this.state,
                     currentWeather: {...data}
                 })
-                console.log(data)
+                
                 this.weatherDataFormat();
             })
     }

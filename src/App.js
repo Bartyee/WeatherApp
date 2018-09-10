@@ -2,6 +2,7 @@ import React,{Component  } from "react";
 import FormComponent from "./Form.js";
 import axios from 'axios';
 import CurrentWeather from "./CurrentWeather.js";
+import Forecast from "./Forecast.js";
 
 
 const API_KEY = "b25c40f7f24ed40bbd9add84d8badbd9";
@@ -33,7 +34,7 @@ class App extends Component {
             <div className='App'>
                 <FormComponent handleSubmit={this.handleSubmit} />
                 <CurrentWeather cityName={this.state.cityName} cityCountry={this.state.cityCountry}/>
-                {/* <CurrentWeather cityName={this.state.cityName}/> */}
+                <Forecast cityName={this.state.cityName} cityCountry={this.state.cityCountry} />
             </div>
         )
     }

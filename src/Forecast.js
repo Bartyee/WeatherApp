@@ -1,5 +1,8 @@
 import React, {Component} from 'react'
 import axios from 'axios'
+import Moment from 'react-moment';
+import 'moment-timezone';
+
 
 const API_KEY = "b25c40f7f24ed40bbd9add84d8badbd9";
 
@@ -8,7 +11,7 @@ class Forecast extends React.Component {
     state = {
         cityName: this.props.cityName,
         cityCountry: this.props.cityCountry,
-        forecast: null,
+        forecast: undefined,
         renderForecast: false
         
     }
@@ -52,8 +55,35 @@ class Forecast extends React.Component {
             })
             
         })
+    }
 
+    
+    
 
+    
+    render(){
+
+        return(
+            <div>
+                {this.state.renderForecast && this.state.forecast.map(function(item,i){
+                    console.log('test');
+                    return(
+                        <div key={i}>
+                            {item.map(function(itemm, o){
+                                return(
+                                    <div key={o}>
+                                        <li>{itemm.dt_txt.split(' ')[0]}</li>
+                                    </div>
+                                    
+                                    
+                                )
+                            })}
+                            <hr />
+                        </div>
+                    )
+                })}
+            </div>
+        )
     }
 
     

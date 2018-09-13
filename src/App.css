@@ -1,1 +1,18 @@
+body{
+    background: linear-gradient(to top left, #ccffff 0%, #0066ff 100%);
+    background-attachment:fixed;
+    height:100%;
+}
 
+.App{
+    display: flex;
+    justify-content: center;
+}
+
+.main{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

@@ -1,13 +1,14 @@
 import React, {Component} from 'react'
+import classes from '../src/style/Form.css';
 
 class FormComponent extends Component {
     render(){
         return(
-            <div className='Form'>
+            <div className='form'>
                 <form onSubmit={this.props.handleSubmit}>
-                    <input type='text' name='city'/>
-                    <input type="text" name='country'/>
-                    <button>Submit</button>
+                    <input placeholder='City' class="form-control" type='text' name='city'/>
+                    <input placeholder='Country' class="form-control" type="text" name='country'/>
+                    <button type="submit" class="btn btn-primary btn-lg btn-submit-bootstrap">Submit</button>
                 </form>
             </div>
         )

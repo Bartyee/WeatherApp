@@ -1,0 +1,21 @@
+
+
+.form form{
+    display: flex;
+    flex-direction: column;
+}
+
+.form input{
+    margin-bottom: 20px;
+    padding-left: 10px;
+    width: 100%;
+    
+}
+
+.btn-submit-bootstrap{
+    width: 100px;
+    font-size: 18px;
+    height: 40px;
+    margin: 0 auto;
+    
+}

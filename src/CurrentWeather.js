@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import classes from '../src/style/CurrentWeather.css';
 
 const API_KEY = "b25c40f7f24ed40bbd9add84d8badbd9";
 
@@ -77,22 +78,22 @@ class CurrentWeather extends Component {
 
     render(){
         return(
-            <div>
-                {this.state.weather.city.name && <p>City: {this.state.weather.city.name}</p>} {/*City Name*/}
+            <div className="currentWeather">
+                {this.state.weather.city.name && <p className='currentWeather__city'>City: {this.state.weather.city.name}</p>} {/*City Name*/}
 
-                {this.state.weather.current.temperature && <p>Temperature: {this.state.weather.current.temperature} &deg;C</p>}
+                {this.state.weather.current.temperature && <p className='currentWeather__temperature'>Temperature: {this.state.weather.current.temperature} &deg;C</p>}
 
-                {this.state.weather.current.humidity && <p>Humidity: {this.state.weather.current.pressure} hpA</p>} {/*Humidity*/}
+                {this.state.weather.current.humidity && <p className='currentWeather__humidity'>Humidity: {this.state.weather.current.pressure} hpA</p>} {/*Humidity*/}
 
-                {this.state.weather.current.pressure && <p>Pressure: {this.state.weather.current.pressure}%</p>} {/*Pressure*/}
+                {this.state.weather.current.pressure && <p className='currentWeather__pressure'>Pressure: {this.state.weather.current.pressure}%</p>} {/*Pressure*/}
 
-                {this.state.weather.current.description && <p>Description: {this.state.weather.current.description}</p>}    {/*Description*/}
+                {this.state.weather.current.description && <p className='currentWeather__description'>Description: {this.state.weather.current.description}</p>}    {/*Description*/}
 
-                {this.state.weather.current.windSpeed && <p>WindSpeed: {this.state.weather.current.windSpeed}mps</p>}  {/*windSpeed*/}
+                {this.state.weather.current.windSpeed && <p className='currentWeather__windSpeed'>WindSpeed: {this.state.weather.current.windSpeed}mps</p>}  {/*windSpeed*/}
 
-                {this.state.weather.current.clouds && <p>Clouds: {this.state.weather.current.clouds}%</p>}   {/*clouds*/}
+                {this.state.weather.current.clouds && <p className='currentWeather__clouds'>Clouds: {this.state.weather.current.clouds}%</p>}   {/*clouds*/}
 
-                {this.state.weather.current.icon && <p>Icon: <img src={this.state.weather.current.icon} /></p>} {/*icon*/}
+                {this.state.weather.current.icon && <p className='currentWeather__icon'>Icon: <img src={this.state.weather.current.icon} /></p>} {/*icon*/}
             </div>
         )
     }

@@ -5,23 +5,6 @@ import 'moment/locale/pl';
 import 'moment-timezone';
 import Slider from "react-slick";
 
-class SimpleSlider extends React.Component {
-    render() {
-      var settings = {
-        dots: false,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1
-      };
-      return (
-        <Slider {...settings}>
-        </Slider>
-      );
-    }
-  }
-
-
 
 
 const API_KEY = "b25c40f7f24ed40bbd9add84d8badbd9";
@@ -87,8 +70,8 @@ class Forecast extends React.Component {
             
                 {this.state.renderForecast && this.state.forecast.map(function(day,index){
                     return(
-                        <div>
-                        <h1 key={index}><Moment locale='pl' format='dddd'>{day[0].dt_txt.split(' ')[0]}</Moment></h1>
+                        <div key={index}>
+                        <h1 ><Moment locale='pl' format='dddd'>{day[0].dt_txt.split(' ')[0]}</Moment></h1>
                         <div>
                         
                         

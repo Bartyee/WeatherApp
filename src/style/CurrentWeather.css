@@ -1,3 +1,87 @@
 .currentWeather{
+    width: 70%;
+    height: auto;
+    border: solid white 1px;
+    border-radius: 25px;
+    background-color: none;
+    flex-wrap: wrap;
+    margin-top: 35px;
+    display: flex;
+}
+
+.cityInfo-left{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    
+    border: solid white 1px;
+    border-left: none;
+    padding: 10px;
+    border-top: none;
+    border-bottom: none;
+}
+
+.cityInfo-left__icoAndcityName{
+    display: flex;
+    align-items: center;
+}
+
+.cityInfo-left__icoAndcityName--cityName{
+    margin-top: 0px;
+    font-size: 40px;
+    margin-bottom: 0;
+    font-weight: bold;
+    
+}
+
+.cityInfo-left__icoAndcityName--icon{
+    margin-top: 10px;
+    width: 80px;
+}
+
+.cityInfo-left__cityName{
+    margin: 0;
+}
+
+.cityInfo-left__description{
+    text-align: center;
+    font-weight: bold;
+    
+    font-size: 25px;
+}
+
+.cityInfo-left__tempAnddetails--temp{
+    display: flex;
+    align-content: center;
+    height: 100%;
+}
+
+.cityInfo-left__tempAnddetails{
+    height: 100%;
+    padding: 10px;
+    display: flex;
+}
+
+.cityInfo-left__tempAnddetails--temp{
+    display: flex;
+    align-items: center;
+}
+
+.cityInfo-left__tempAnddetails--temp p{
+    font-weight: bold;
+    font-size: 65px;
+}
+
+.cityInfo-right img{
+    width: 35px;
+    height: 35px;
+}
+
+.cityInfo-left__tempAnddetails__details{
+    display: flex;
+    flex-direction: column;
+}
+
+.tempAnddetails__details{
     display: flex;
 }

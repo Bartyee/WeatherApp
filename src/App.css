@@ -1,7 +1,7 @@
 body{
     background: linear-gradient(to top left, #ccffff 0%, #0066ff 100%);
     background-attachment:fixed;
-    height:100%;
+    height: 100%;
 }
 
 .App{

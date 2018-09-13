@@ -44,26 +44,18 @@ class CurrentWeather extends Component {
                 
                 this.weatherDataFormat();
             })
+            .catch(error =>{
+                this.setState({
+                    ...this.state,
+                    currentWeather: "Limit zapytań został wyczerpany!"
+                })
+            })
     }
 
     weatherDataFormat = () => {
         this.setState({
 
             ...this.state,
-            // weather: {
-            //     city: {
-            //         name: this.state.currentWeather.city.name,
-            //         id: this.state.currentWeather.id
-            //     },
-            //     current: { TO JEST DO FORECAST CZYLI DO 5 DNIOWEJ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-            //         humidity: this.state.currentWeather.list.humidity,
-                    
-            //         // temperature://this.state.currentWeather.list[0].temperature,
-            //         // description: //this.state.currentWeather.weather[0].description,
-            //         // windSpeed: //this.state.currentWeather.wind.speed,
-            //         // clouds: //this.state.currentWeather.clouds.all
-            //     }
-            // }
 
             weather: {
                 city: {
@@ -88,7 +80,7 @@ class CurrentWeather extends Component {
             <div>
                 {this.state.weather.city.name && <p>City: {this.state.weather.city.name}</p>} {/*City Name*/}
 
-                {this.state.weather.current.temperature && <p>Temperature: {this.state.weather.current.temperature}</p>}
+                {this.state.weather.current.temperature && <p>Temperature: {this.state.weather.current.temperature} &deg;C</p>}
 
                 {this.state.weather.current.humidity && <p>Humidity: {this.state.weather.current.pressure} hpA</p>} {/*Humidity*/}
 

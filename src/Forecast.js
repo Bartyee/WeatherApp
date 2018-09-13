@@ -3,6 +3,24 @@ import axios from 'axios'
 import Moment from 'react-moment';
 import 'moment/locale/pl';
 import 'moment-timezone';
+import Slider from "react-slick";
+
+class SimpleSlider extends React.Component {
+    render() {
+      var settings = {
+        dots: false,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1
+      };
+      return (
+        <Slider {...settings}>
+        </Slider>
+      );
+    }
+  }
+
 
 
 
@@ -14,7 +32,8 @@ class Forecast extends React.Component {
         cityName: this.props.cityName,
         cityCountry: this.props.cityCountry,
         forecast: undefined,
-        renderForecast: false
+        renderForecast: false,
+        icon: 'http://openweathermap.org/img/w/'
         
     }
 
@@ -60,38 +79,56 @@ class Forecast extends React.Component {
     }
 
     
-    formatDayData = (string) => {
-        const days = ['Niedziela','Poniedziałek','Wtorek','Środa','Czwartek','Piątek','Sobota'];
-
-    }
-    
     render(){
 
         return(
+            
             <div>
+            
                 {this.state.renderForecast && this.state.forecast.map(function(day,index){
                     return(
                         <div>
                         <h1 key={index}><Moment locale='pl' format='dddd'>{day[0].dt_txt.split(' ')[0]}</Moment></h1>
-                        {day.map(function(hour,index){
-                            return(
-                                <div key={index}>
-                                    <p>{hour.dt_txt.split(' ')[1]}</p>
-                                    <p>{hour.main.temp}</p>
-
-                                </div>
+                        <div>
+                        
+                        
+                            {day.map(function(hourProperty,index){
                                 
-                            )
+                                return(
+                                    
+                                    
+                                    <div key={index}>
+                                        
+                                        <p>Hour: {hourProperty.dt_txt.split(' ')[1]}</p>
+                                        <p>Temperature: {hourProperty.main.temp}</p>
+                                        <p>Humidity: {hourProperty.main.humidity}</p>
+                                        <p>Pressure: {hourProperty.main.pressure}</p>
+                                        <p>WindSpeed: {hourProperty.wind.speed}</p>
+                                        <p>Humidity: {hourProperty.main.humidity}</p>
+                                        <img src={'http://openweathermap.org/img/w/' + hourProperty.weather[0].icon + '.png'} />
+                                        <hr />
+                                    </div>
+                                    
+                                    
+
+                                )
+                            })}
                             
-                        })}
+                            </div>
                         </div>
+                        
+                        
+                        
+                        
                     )
                     
+
                     
                 })}
                 
                 
             </div>
+            
         )
     }
 

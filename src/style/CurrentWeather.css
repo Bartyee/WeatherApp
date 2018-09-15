@@ -1,19 +1,19 @@
 .currentWeather{
     width: 70%;
     height: auto;
-    border: solid white 1px;
+    border: solid #000000 1px;
     border-radius: 25px;
-    background-color: none;
+    background-color: white;
     flex-wrap: wrap;
     margin-top: 35px;
     display: flex;
+    justify-content: center;
 }
 
 .cityInfo-left{
     display: flex;
     flex-direction: column;
     width: 300px;
-    
     border: solid white 1px;
     border-left: none;
     padding: 10px;
@@ -50,38 +50,88 @@
     font-size: 25px;
 }
 
-.cityInfo-left__tempAnddetails--temp{
+.cityInfo-right{
+    display: flex;
+    justify-content: center;
+}
+.cityInfo-right__tempAnddetails--temp{
     display: flex;
     align-content: center;
     height: 100%;
+    
 }
 
-.cityInfo-left__tempAnddetails{
+.cityInfo-right__tempAnddetails{
     height: 100%;
     padding: 10px;
     display: flex;
+    justify-content: space-between;
+    margin-left: 45px;
+    
 }
 
-.cityInfo-left__tempAnddetails--temp{
+.cityInfo-right__tempAnddetails--temp{
     display: flex;
-    align-items: center;
-}
-
-.cityInfo-left__tempAnddetails--temp p{
     font-weight: bold;
     font-size: 65px;
+    align-items: center;
+    
 }
 
 .cityInfo-right img{
-    width: 35px;
+    margin-bottom: 10px;
     height: 35px;
+    margin-right: 15px;
 }
 
-.cityInfo-left__tempAnddetails__details{
+.cityInfo-right__tempAnddetails__details{
     display: flex;
+    margin-left: 50px;
     flex-direction: column;
+    font-weight: bold;
+    
 }
 
 .tempAnddetails__details{
     display: flex;
+}
+
+.cityInfo-right__tempAnddetails__details--element{
+    display: flex;
+}
+
+/* start of desktop styles */
+
+@media screen and (max-width: 991px) {
+    /* start of large tablet styles */
+.cityInfo-left{
+    border: none;
+}
+}
+
+@media screen and (max-width: 564px) {
+    /* start of medium tablet styles */
+
+    .cityInfo-right__tempAnddetails__details{
+        margin: 0;
+        margin-left: 20px; 
+    }
+    .cityInfo-right__tempAnddetails{
+        margin: 0;
+    }
+    .cityInfo-right__tempAnddetails--temp{
+        font-size: 45px;
+    }
+
+    .tempAnddetails__details img{
+        width: 20px;
+        height: 20px;
+    }
+}
+
+@media screen and (max-width: 365px) {
+    .cityInfo-right__tempAnddetails--temp{
+        font-size: 25px;
+    }
+
 }

@@ -94,26 +94,26 @@ class CurrentWeather extends Component {
                     </div>
                 </div>
                 <div className='cityInfo-right'>
-                    <div className='cityInfo-left__tempAnddetails'>
-                        <div className='cityInfo-left__tempAnddetails--temp'>
+                    <div className='cityInfo-right__tempAnddetails'>
+                        <div className='cityInfo-right__tempAnddetails--temp'>
                         {this.state.weather.current.temperature && <p>{this.state.weather.current.temperature} &deg;C</p>}
                         </div>
-                        <div className='cityInfo-left__tempAnddetails__details'>
-                            <div className='cityInfo-left__tempAnddetails__details--humidity tempAnddetails__details'>
-                                {this.state.weather.current.humidity && <img src={iconHumidity} />}
-                                <p>chuj</p>
+                        <div className='cityInfo-right__tempAnddetails__details'>
+                            <div className='cityInfo-right__tempAnddetails__details--humidity tempAnddetails__details'>
+                                {this.state.weather.current.humidity && <div className='cityInfo-right__tempAnddetails__details--element'><img src={iconHumidity} />  <p>{this.state.weather.current.humidity} %</p></div>}
+                                
                             </div>
-                            <div className='cityInfo-left__tempAnddetails__details--pressure tempAnddetails__details'>
-                                {this.state.weather.current.pressure && <img src={iconPressure} />}
-                                <p>chuj</p>
+                            <div className='cityInfo-right__tempAnddetails__details--pressure tempAnddetails__details'>
+                                {this.state.weather.current.pressure && <div className='cityInfo-right__tempAnddetails__details--element'><img src={iconPressure} />  <p>{this.state.weather.current.pressure} hPa</p></div>}
+                                
                             </div>
-                            <div className='cityInfo-left__tempAnddetails__details--windSpeed tempAnddetails__details'>
-                                {this.state.weather.current.windSpeed && <img src={iconWindSpeed} />}
-                                <p>chuj</p>
+                            <div className='cityInfo-right__tempAnddetails__details--windSpeed tempAnddetails__details'>
+                                {this.state.weather.current.windSpeed && <div className='cityInfo-right__tempAnddetails__details--element'><img src={iconWindSpeed} />  <p>{this.state.weather.current.windSpeed} mps</p></div>}
+                                
                             </div>
-                            <div className='cityInfo-left__tempAnddetails__details--clouds tempAnddetails__details'>
-                                {this.state.weather.current.clouds && <img src={iconClouds} /> + '%'}
-                                <p>chuj</p>
+                            <div className='cityInfo-right__tempAnddetails__details--clouds tempAnddetails__details'>
+                                {this.state.weather.current.clouds && <div className='cityInfo-right__tempAnddetails__details--element'><img src={iconClouds} />  <p>{this.state.weather.current.clouds} %</p></div>}
+                                
                             </div>
                             
                             

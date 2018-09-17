@@ -26,6 +26,7 @@ class App extends Component {
         const cityName = e.target.elements.city.value;
         const cityCountry = e.target.elements.country.value;
 
+
         this.setState({
             cityName: cityName,
             cityCountry: cityCountry

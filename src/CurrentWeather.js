@@ -1,10 +1,17 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import Moment from 'react-moment';
+import 'moment/locale/pl';
+import 'moment-timezone';
 import classes from '../src/style/CurrentWeather.css';
 import iconHumidity from "./img/015-humidity.png";
 import iconPressure from "./img/003-moon.png";
 import iconWindSpeed from "./img/014-wind-sign.png";
 import iconClouds from "./img/030-cloudy.png";
+
+import ReactTooltip from 'react-tooltip';
+
+// By default, the tooltip has no style.
 
 
 const API_KEY = "b25c40f7f24ed40bbd9add84d8badbd9";
@@ -14,6 +21,7 @@ class CurrentWeather extends Component {
     state = {
         cityName: this.props.cityName,
         cityCountry: this.props.cityCountry,
+        showWeather: false,
 
         currentWeather: null,
 
@@ -62,6 +70,7 @@ class CurrentWeather extends Component {
         this.setState({
 
             ...this.state,
+            showWeather: true,
 
             weather: {
                 city: {
@@ -76,14 +85,17 @@ class CurrentWeather extends Component {
                    windSpeed: this.state.currentWeather.wind.speed,
                    clouds: this.state.currentWeather.clouds.all,
                    icon: 'http://openweathermap.org/img/w/' + this.state.currentWeather.weather[0].icon + '.png'
+                   
                 }
             }
         })
     }
 
     render(){
-        return(
-            <div className="currentWeather">
+        if(this.state.showWeather)
+        {
+            return(
+                <div className="currentWeather">
                 <div className='cityInfo-left'>
                     <div className='cityInfo-left__icoAndcityName'>
                         {this.state.weather.current.icon && <img className='cityInfo-left__icoAndcityName--icon' src={this.state.weather.current.icon} />}
@@ -95,48 +107,57 @@ class CurrentWeather extends Component {
                 </div>
                 <div className='cityInfo-right'>
                     <div className='cityInfo-right__tempAnddetails'>
+                        
                         <div className='cityInfo-right__tempAnddetails--temp'>
                         {this.state.weather.current.temperature && <p>{this.state.weather.current.temperature} &deg;C</p>}
                         </div>
+                        
+                    
                         <div className='cityInfo-right__tempAnddetails__details'>
-                            <div className='cityInfo-right__tempAnddetails__details--humidity tempAnddetails__details'>
+                        
+                            <div data-tip data-for='humidity' className='cityInfo-right__tempAnddetails__details--humidity tempAnddetails__details'>
+                                <ReactTooltip id='humidity'>
+                                    <span>Humidity</span>
+                                </ReactTooltip>
                                 {this.state.weather.current.humidity && <div className='cityInfo-right__tempAnddetails__details--element'><img src={iconHumidity} />  <p>{this.state.weather.current.humidity} %</p></div>}
-                                
                             </div>
-                            <div className='cityInfo-right__tempAnddetails__details--pressure tempAnddetails__details'>
-                                {this.state.weather.current.pressure && <div className='cityInfo-right__tempAnddetails__details--element'><img src={iconPressure} />  <p>{this.state.weather.current.pressure} hPa</p></div>}
-                                
+                            
+                        
+                        
+                           
+                            
+                            <div data-tip data-for='pressure' className='cityInfo-right__tempAnddetails__details--pressure tempAnddetails__details'>
+                                <ReactTooltip id='pressure'>
+                                    <span>Pressure</span>
+                                </ReactTooltip>
+                                {this.state.weather.current.pressure && <div className='cityInfo-right__tempAnddetails__details--element'><img src={iconPressure} />  <p>{this.state.weather.current.pressure} hPa</p></div>}                    
                             </div>
-                            <div className='cityInfo-right__tempAnddetails__details--windSpeed tempAnddetails__details'>
+                            <div data-tip data-for='windSpeed' className='cityInfo-right__tempAnddetails__details--windSpeed tempAnddetails__details'>
+                                <ReactTooltip id='windSpeed'>
+                                    <span>Wind Speed</span>
+                                </ReactTooltip>
                                 {this.state.weather.current.windSpeed && <div className='cityInfo-right__tempAnddetails__details--element'><img src={iconWindSpeed} />  <p>{this.state.weather.current.windSpeed} mps</p></div>}
-                                
                             </div>
-                            <div className='cityInfo-right__tempAnddetails__details--clouds tempAnddetails__details'>
-                                {this.state.weather.current.clouds && <div className='cityInfo-right__tempAnddetails__details--element'><img src={iconClouds} />  <p>{this.state.weather.current.clouds} %</p></div>}
-                                
+                            <div data-tip data-for='clouds' className='cityInfo-right__tempAnddetails__details--clouds tempAnddetails__details'>
+                                <ReactTooltip id='clouds'>
+                                    <span>Clouds</span>
+                                </ReactTooltip>
+                                {iconClouds && <div className='cityInfo-right__tempAnddetails__details--element'><img src={iconClouds} />  <p>{this.state.weather.current.clouds} %</p></div>}
                             </div>
-                            
-                            
                         </div>
-
                     </div>
                 </div>
-                
-                 
-
-                {/*
-
-                {this.state.weather.current.humidity && <p className='currentWeather__humidity'>Humidity: {this.state.weather.current.pressure} hpA</p>}
-
-                {this.state.weather.current.pressure && <p className='currentWeather__pressure'>Pressure: {this.state.weather.current.pressure}%</p>} 
-
-                {this.state.weather.current.windSpeed && <p className='currentWeather__windSpeed'>WindSpeed: {this.state.weather.current.windSpeed}mps</p>}  
-
-                {this.state.weather.current.clouds && <p className='currentWeather__clouds'>Clouds: {this.state.weather.current.clouds}%</p>}    */}
-
-                
             </div>
+            
+            
+            
         )
+        }
+        else{
+            return null
+        }
+        
+    
     }
 }
 

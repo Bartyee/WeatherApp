@@ -1,13 +1,15 @@
 import React, {Component} from 'react'
 import axios from 'axios'
 import Moment from 'react-moment';
-import 'moment/locale/pl';
+import classes from '../src/style/Forecast.css';
 import 'moment-timezone';
-import Slider from "react-slick";
+import Swiper from 'react-id-swiper';
 
 
 
 const API_KEY = "b25c40f7f24ed40bbd9add84d8badbd9";
+
+
 
 class Forecast extends React.Component {
     
@@ -19,6 +21,8 @@ class Forecast extends React.Component {
         icon: 'http://openweathermap.org/img/w/'
         
     }
+
+    
 
     componentWillReceiveProps(nextProps){
         axios.get(`https://api.openweathermap.org/data/2.5/forecast?q=${nextProps.cityName},${nextProps.cityCountry}&appid=${API_KEY}&units=metric`)
@@ -63,16 +67,44 @@ class Forecast extends React.Component {
 
     
     render(){
+        const params = {
+            spaceBetween: 30,
+            slidesPerView: 1,
+            containerClass: classes.hourInDay,
+            autoplay: {
+                delay: 3500,
+            },
+            breakpoints: {
+                    800: {
+                        slidesPerView: 2,
+                        spaceBetween: 15
+                    },
+                    550: {
+                        slidesPerView: 1,
+                        spaceBetween: 5
+                    },
+            },
+            grabCursor: true
+
+        }
 
         return(
             
-            <div>
-            
+            <div className='forecastWeather'>
+
+                
+                
                 {this.state.renderForecast && this.state.forecast.map(function(day,index){
+                    
                     return(
-                        <div key={index}>
-                        <h1 ><Moment locale='pl' format='dddd'>{day[0].dt_txt.split(' ')[0]}</Moment></h1>
-                        <div>
+                        
+                        
+                        <div className='dayInWeek' key={index}>
+                    
+                        <h1 className='nameOfDay'><Moment format='dddd'>{day[0].dt_txt.split(' ')[0]}</Moment></h1>
+                        
+                        <Swiper {...params}>
+                        <div className='hourInDay'>
                         
                         
                             {day.map(function(hourProperty,index){
@@ -80,14 +112,13 @@ class Forecast extends React.Component {
                                 return(
                                     
                                     
-                                    <div key={index}>
+                                    <div className='hourInDay-all' key={index}>
                                         
-                                        <p>Hour: {hourProperty.dt_txt.split(' ')[1]}</p>
-                                        <p>Temperature: {hourProperty.main.temp}</p>
-                                        <p>Humidity: {hourProperty.main.humidity}</p>
-                                        <p>Pressure: {hourProperty.main.pressure}</p>
-                                        <p>WindSpeed: {hourProperty.wind.speed}</p>
-                                        <p>Humidity: {hourProperty.main.humidity}</p>
+                                        <h3>Hour:</h3><p><span>{hourProperty.dt_txt.split(' ')[1]}</span></p>
+                                        <h3>Temperature:</h3><p>{hourProperty.main.temp} &deg;C</p>
+                                        <h3>Humidity:</h3><p>{hourProperty.main.humidity} %</p>
+                                        <h3>Pressure:</h3><p>{hourProperty.main.pressure} hPa</p>
+                                        <h3>Speed:</h3><p>{hourProperty.wind.speed} mps</p>
                                         <img src={'http://openweathermap.org/img/w/' + hourProperty.weather[0].icon + '.png'} />
                                         <hr />
                                     </div>
@@ -95,19 +126,22 @@ class Forecast extends React.Component {
                                     
 
                                 )
+                                
                             })}
-                            
+                        
                             </div>
+                            </Swiper>
                         </div>
-                        
-                        
-                        
+
+                       
                         
                     )
                     
 
                     
                 })}
+                
+                
                 
                 
             </div>

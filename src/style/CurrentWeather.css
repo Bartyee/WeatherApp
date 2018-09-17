@@ -1,5 +1,5 @@
 .currentWeather{
-    width: 70%;
+    width: 90%;
     height: auto;
     border: solid #000000 1px;
     border-radius: 25px;
@@ -8,6 +8,8 @@
     margin-top: 35px;
     display: flex;
     justify-content: center;
+    font-family: 'Poppins', sans-serif;
+    position: relative;
 }
 
 .cityInfo-left{
@@ -74,6 +76,7 @@
     display: flex;
     font-weight: bold;
     font-size: 65px;
+    
     align-items: center;
     
 }
@@ -98,6 +101,12 @@
 
 .cityInfo-right__tempAnddetails__details--element{
     display: flex;
+}
+
+.dayInWeek-Moment{
+    position: absolute;
+    top: 10px;
+    left: 25px;
 }
 
 /* start of desktop styles */
@@ -129,9 +138,17 @@
     }
 }
 
-@media screen and (max-width: 365px) {
+@media screen and (max-width: 483px) {
     .cityInfo-right__tempAnddetails--temp{
-        font-size: 25px;
+        font-size: 35px;
+    }
+    
+
+}
+
+@media screen and (max-width: 331px) {
+    .cityInfo-right__tempAnddetails--temp{
+        font-size: 30px;
     }
 
 }

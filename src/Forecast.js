@@ -80,7 +80,7 @@ class Forecast extends React.Component {
                         spaceBetween: 15
                     },
                     550: {
-                        slidesPerView: 1,
+                        slidesPerView: 2,
                         spaceBetween: 5
                     },
             },

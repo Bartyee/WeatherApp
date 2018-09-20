@@ -47,7 +47,7 @@ class CurrentWeather extends Component {
     }
 
     componentWillReceiveProps(nextProps){
-        axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${nextProps.cityName},${nextProps.cityCountry}&appid=${API_KEY}&units=metric`)
+        axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${nextProps.cityName},${nextProps.cityCountry}&appid=${API_KEY}&units=metric`)
         
             .then(res => {
                 const data = res.data;
@@ -84,7 +84,7 @@ class CurrentWeather extends Component {
                    description: this.state.currentWeather.weather[0].description,
                    windSpeed: this.state.currentWeather.wind.speed,
                    clouds: this.state.currentWeather.clouds.all,
-                   icon: 'http://openweathermap.org/img/w/' + this.state.currentWeather.weather[0].icon + '.png'
+                   icon: 'https://openweathermap.org/img/w/' + this.state.currentWeather.weather[0].icon + '.png'
                    
                 }
             }

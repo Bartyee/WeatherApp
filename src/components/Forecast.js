@@ -18,7 +18,7 @@ class Forecast extends React.Component {
         cityCountry: this.props.cityCountry,
         forecast: undefined,
         renderForecast: false,
-        icon: 'http://openweathermap.org/img/w/'
+        icon: 'https://openweathermap.org/img/w/'
         
     }
 
@@ -128,7 +128,7 @@ class Forecast extends React.Component {
                                             <h3>Humidity:</h3><p>{hourProperty.main.humidity} %</p>
                                             <h3>Pressure:</h3><p>{hourProperty.main.pressure} hPa</p>
                                             <h3>Speed:</h3><p>{hourProperty.wind.speed} mps</p>
-                                            <img src={'http://openweathermap.org/img/w/' + hourProperty.weather[0].icon + '.png'} />
+                                            <img src={'https://openweathermap.org/img/w/' + hourProperty.weather[0].icon + '.png'} />
                                             <hr />
                                         </div>
                                         

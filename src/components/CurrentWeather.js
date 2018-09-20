@@ -3,11 +3,11 @@ import axios from 'axios';
 import Moment from 'react-moment';
 import 'moment/locale/pl';
 import 'moment-timezone';
-import classes from '../src/style/CurrentWeather.css';
-import iconHumidity from "./img/015-humidity.png";
-import iconPressure from "./img/003-moon.png";
-import iconWindSpeed from "./img/014-wind-sign.png";
-import iconClouds from "./img/030-cloudy.png";
+import classes from '../style/CurrentWeather.css';
+import iconHumidity from "../img/015-humidity.png";
+import iconPressure from "../img/003-moon.png";
+import iconWindSpeed from "../img/014-wind-sign.png";
+import iconClouds from "../img/030-cloudy.png";
 
 import ReactTooltip from 'react-tooltip';
 

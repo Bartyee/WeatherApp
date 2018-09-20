@@ -1,10 +1,10 @@
 import React,{Component  } from "react";
 import classes from './App.css'
-import FormComponent from "./Form.js";
+import FormComponent from "./components/Form.js";
 import axios from 'axios';
-import CurrentWeather from "./CurrentWeather.js";
-import Forecast from "./Forecast.js";
-import Header from "./Header.js";
+import CurrentWeather from "./components//CurrentWeather.js";
+import Forecast from "./components//Forecast.js";
+import Header from "./components/Header.js";
 
 
 

@@ -1,4 +1,10 @@
 {
-  "main.js": "static/js/main.16c88981.js",
-  "main.js.map": "static/js/main.16c88981.js.map"
+  "main.css": "static/css/main.67653bf5.css",
+  "main.css.map": "static/css/main.67653bf5.css.map",
+  "main.js": "static/js/main.c71533e2.js",
+  "main.js.map": "static/js/main.c71533e2.js.map",
+  "static\\media\\003-moon.png": "static/media/003-moon.a7e78376.png",
+  "static\\media\\014-wind-sign.png": "static/media/014-wind-sign.0e734e17.png",
+  "static\\media\\015-humidity.png": "static/media/015-humidity.a72e7089.png",
+  "static\\media\\030-cloudy.png": "static/media/030-cloudy.1a06c540.png"
 }

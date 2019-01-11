@@ -2,10 +2,12 @@ body{
     background: linear-gradient(to top left, #ccffff 0%, #0066ff 100%);
     background-attachment:fixed;
     height: 100%;
+    
 }
 
 .App{
     display: flex;
+    z-index: 123213;
     justify-content: center;
 }
 

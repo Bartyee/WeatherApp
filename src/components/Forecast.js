@@ -99,7 +99,7 @@ class Forecast extends React.Component {
         {
             return(
             
-                <div className='forecastWeather w3-animate-top'>
+                <div className='forecastWeather'>
     
                     
                     
@@ -109,20 +109,17 @@ class Forecast extends React.Component {
                             
                             
                             <div className='dayInWeek' key={index}>
-                        
+                            <div class="force-overflow" id="customScroll">
                             <h1 className='nameOfDay'><Moment locale='en' format='dddd'>{day[0].dt_txt.split(' ')[0]}</Moment></h1>
                             
-                            <Swiper {...params}>
+                            
                             <div className='hourInDay'>
                             
                             
                                 {day.map(function(hourProperty,index){
                                     
                                     return(
-                                        
-                                        
                                         <div className='hourInDay-all' key={index}>
-                                            
                                             <h3>Hour:</h3><p><span>{hourProperty.dt_txt.split(' ')[1]}</span></p>
                                             <h3>Temperature:</h3><p>{hourProperty.main.temp} &deg;C</p>
                                             <h3>Humidity:</h3><p>{hourProperty.main.humidity} %</p>
@@ -131,16 +128,14 @@ class Forecast extends React.Component {
                                             <img src={'https://openweathermap.org/img/w/' + hourProperty.weather[0].icon + '.png'} />
                                             <hr />
                                         </div>
-                                        
-                                        
-    
                                     )
-                                    
                                 })}
-                            
+                                
                                 </div>
-                                </Swiper>
                             </div>
+                        
+                            </div>
+                            
     
                            
                             

@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import Moment from 'react-moment';
 import 'moment/locale/pl';
 import 'moment-timezone';
 import classes from '../style/CurrentWeather.css';

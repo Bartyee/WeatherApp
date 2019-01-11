@@ -21,7 +21,9 @@
 .hourInDay{
     display: flex;
     width: 100%;
+    overflow-x: scroll;
     -webkit-animation: expand 0.5s;
+    
 }
 
 .hourInDay-all{

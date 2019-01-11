@@ -101,21 +101,18 @@ class Forecast extends React.Component {
             
                 <div className='forecastWeather'>
     
-                    
-                    
+                <div class="scrollbar" id="customScroll">
+                    <div class="force-overflow">
                     {this.state.renderForecast && this.state.forecast.map(function(day,index){
                         
                         return(
-                            
-                            
+
                             <div className='dayInWeek' key={index}>
                             <div class="force-overflow" id="customScroll">
                             <h1 className='nameOfDay'><Moment locale='en' format='dddd'>{day[0].dt_txt.split(' ')[0]}</Moment></h1>
                             
                             
                             <div className='hourInDay'>
-                            
-                            
                                 {day.map(function(hourProperty,index){
                                     
                                     return(
@@ -130,24 +127,15 @@ class Forecast extends React.Component {
                                         </div>
                                     )
                                 })}
-                                
                                 </div>
                             </div>
                         
                             </div>
-                            
-    
-                           
-                            
                         )
-                        
-    
-                        
                     })}
-                    
-                    
-                    
-                    
+                    </div>
+                </div>
+    
                 </div>
                 
             )
